@@ -8,8 +8,7 @@ class DashboardController extends Controller
 {
     public function admin_dashboard(Request $request)
     {
-        echo "admin";
-        die();
+        return view('admin.dashboard.index');
     }
 
     public function user_dashboard(Request $request)
