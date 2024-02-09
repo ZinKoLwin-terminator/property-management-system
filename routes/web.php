@@ -31,6 +31,11 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('admin/amc/list', [AMCController::class, 'amc_list']);
     Route::get('admin/amc/add', [AMCController::class, 'amc_add']);
     Route::post('admin/amc/add', [AMCController::class, 'amc_insert']);
+
+    Route::get('admin/amc/edit/{id}', [AMCController::class, 'amc_edit']);
+    Route::post('admin/amc/edit/{id}', [AMCController::class, 'amc_update']);
+
+    Route::get('admin/amc/delete/{id}', [AMCController::class, 'amc_delete']);
 });
 
 Route::group(['middleware' => 'user'], function () {

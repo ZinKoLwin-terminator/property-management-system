@@ -45,8 +45,12 @@
                           <td>{{!empty($value->business_category)?'Non-Business':'Business'}}</td>
                           <td>{{$value->series}}</td>
                           <td>
-                              <a href="{{url('')}}" class="btn btn-success"><i class="bi bi-pencil-square"></i></a>
-                              <a href="{{url('')}}" class="btn btn-danger"><i class="bi bi-trash"></i></a>
+                              <a href="{{url('admin/amc/edit/'.$value->id)}}" class="btn btn-success"><i class="bi bi-pencil-square"></i></a>
+
+                              {{-- <a onclick="return confirm('Are you sure you want to delete?')"  href="{{url('admin/amc/delete/'.$value->id))}}" class="btn btn-danger"><i class="bi bi-trash"></i></a> --}}
+
+                              <a onclick="return confirm('Are you sure you want to delete?')" href="{{ url('admin/amc/delete/'.$value->id) }}" class="btn btn-danger"><i class="bi bi-trash"></i></a>
+
                           </td>
                       </tr>
 

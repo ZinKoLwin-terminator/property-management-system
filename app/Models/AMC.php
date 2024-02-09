@@ -20,4 +20,9 @@ class AMC extends Model
 
         return $return;
     }
+
+    static public function get_single($id)
+    {
+        return self::find($id);
+    }
 }
