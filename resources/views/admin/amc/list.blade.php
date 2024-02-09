@@ -1,3 +1,5 @@
+
+
 @extends('admin.layouts.app')
 @section('content')
 
@@ -19,7 +21,7 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">
-                        <a href="" class="btn btn-primary">Add New AMC</a>
+                        <a href="{{url('admin/amc/add')}}" class="btn btn-primary">Add New AMC</a>
                     </h5>
 
                     <table class="table">
@@ -34,19 +36,32 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Website</td>
-                                <td>705</td>
-                                <td>Business</td>
-                                <td>789765464</td>
-                                <td>
-                                    <a href="{{url('')}}" class="btn btn-success"><i class="bi bi-pencil-square"></i></a>
-                                    <a href="{{url('')}}" class="btn btn-danger"><i class="bi bi-trash"></i></a>
-                                </td>
-                            </tr>
+                           @if ($getRecord->count()!=0)
+                           @foreach ($getRecord as $value)
+                           <tr>
+                          <td>{{$value->id}}</td>
+                          <td>{{$value->name}}</td>
+                          <td>{{number_format($value->amount,2)}}</td>
+                          <td>{{!empty($value->business_category)?'Non-Business':'Business'}}</td>
+                          <td>{{$value->series}}</td>
+                          <td>
+                              <a href="{{url('')}}" class="btn btn-success"><i class="bi bi-pencil-square"></i></a>
+                              <a href="{{url('')}}" class="btn btn-danger"><i class="bi bi-trash"></i></a>
+                          </td>
+                      </tr>
+
+                      @endforeach
+                           @else
+                           <tr>
+                            <td class="text-center" colspan="100%">Record Not Found</td>
+                        </tr>
+
+                           @endif
+
+
                         </tbody>
                     </table>
+                    {{$getRecord->links()}}
                 </div>
             </div>
         </div>

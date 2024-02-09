@@ -29,6 +29,8 @@ Route::group(['middleware' => 'admin'], function () {
 
     Route::get('admin/dashboard', [DashboardController::class, 'admin_dashboard']);
     Route::get('admin/amc/list', [AMCController::class, 'amc_list']);
+    Route::get('admin/amc/add', [AMCController::class, 'amc_add']);
+    Route::post('admin/amc/add', [AMCController::class, 'amc_insert']);
 });
 
 Route::group(['middleware' => 'user'], function () {
