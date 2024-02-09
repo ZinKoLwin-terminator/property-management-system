@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AMCController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +37,15 @@ Route::group(['middleware' => 'admin'], function () {
     Route::post('admin/amc/edit/{id}', [AMCController::class, 'amc_update']);
 
     Route::get('admin/amc/delete/{id}', [AMCController::class, 'amc_delete']);
+
+    //category
+
+    Route::get('admin/category/list', [CategoryController::class, 'category_list']);
+    Route::get('admin/category/add', [CategoryController::class, 'category_add']);
+    Route::post('admin/category/add', [CategoryController::class, 'category_insert']);
+    Route::get('admin/category/edit/{id}', [CategoryController::class, 'category_edit']);
+    Route::post('admin/category/edit/{id}', [CategoryController::class, 'category_update']);
+    Route::get('admin/category/delete/{id}', [CategoryController::class, 'category_delete']);
 });
 
 Route::group(['middleware' => 'user'], function () {
