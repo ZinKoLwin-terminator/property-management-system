@@ -42,6 +42,9 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('admin/amc/add_add_ons/{id}', [AMCController::class, 'amc_add_add_ons']);
 
     Route::post('admin/amc/add_add_ons/{id}', [AMCController::class, 'amc_store__add_ons']);
+    Route::get('admin/amc/edit_add_ons/{id}', [AMCController::class, 'amc_edit__add_ons']);
+    Route::post('admin/amc/edit_add_ons/{id}', [AMCController::class, 'amc_update_add_ons']);
+    Route::get('admin/amc/delete_add_ons/{id}', [AMCController::class, 'delete_add_ons']);
 
     //category
 

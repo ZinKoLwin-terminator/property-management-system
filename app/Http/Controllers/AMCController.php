@@ -104,4 +104,29 @@ class AMCController extends Controller
 
         return redirect('admin/amc/add_ons/' . $request->amc_id)->with('success', 'Record Successfully Created');
     }
+
+    public function amc_edit__add_ons($id, Request $request)
+    {
+        $data['getRecord'] = AmcAddOns::get_single($id);
+        return view('admin.amc.add_ons_edit', $data);
+    }
+
+    public function amc_update_add_ons($id, Request $request)
+    {
+        // @dd($request->all());
+        $update = AmcAddOns::get_single($id);
+        $update->name = trim($request->name);
+        $update->price = !empty($request->price) ? $request->price : '0';
+        $update->save();
+
+        return redirect('admin/amc/add_ons/' . $update->amc_id)->with('success', 'Record Successfully updated');
+    }
+
+    public function delete_add_ons($id, Request $request)
+    {
+        $delete_record = AmcAddOns::get_single($id);
+        $delete_record->delete();
+
+        return redirect()->back()->with('error', 'Record Successfully deleted');
+    }
 }
