@@ -38,6 +38,11 @@ Route::group(['middleware' => 'admin'], function () {
 
     Route::get('admin/amc/delete/{id}', [AMCController::class, 'amc_delete']);
 
+    Route::get('admin/amc/add_ons/{id}', [AMCController::class, 'amc_add_ons_list']);
+    Route::get('admin/amc/add_add_ons/{id}', [AMCController::class, 'amc_add_add_ons']);
+
+    Route::post('admin/amc/add_add_ons/{id}', [AMCController::class, 'amc_store__add_ons']);
+
     //category
 
     Route::get('admin/category/list', [CategoryController::class, 'category_list']);
