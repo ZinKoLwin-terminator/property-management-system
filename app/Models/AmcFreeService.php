@@ -19,4 +19,9 @@ class AmcFreeService extends Model
         $return = $return->paginate(20);
         return $return;
     }
+
+    static public function get_single($id)
+    {
+        return self::find($id);
+    }
 }

@@ -49,6 +49,11 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('admin/amc/free_service/{id}', [AMCController::class, 'amc_free_service']);
     Route::get('admin/amc/add_free_service/{id}', [AMCController::class, 'amc_add_free_service']);
     Route::post('admin/amc/add_free_service/{id}', [AMCController::class, 'amc_store_free_service']);
+    Route::get('admin/amc/edit_free_service/{id}', [AMCController::class, 'amc_edit_free_service']);
+    Route::post('admin/amc/edit_free_service/{id}', [AMCController::class, 'amc_update_free_service']);
+
+    Route::get('admin/amc/delete_free_service/{id}', [AMCController::class, 'amc_delete_free_service']);
+
 
     //category
 
