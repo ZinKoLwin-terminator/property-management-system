@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AmcFreeService;
 use Illuminate\Http\Request;
 
 use App\Models\AMC;
@@ -128,5 +129,39 @@ class AMCController extends Controller
         $delete_record->delete();
 
         return redirect()->back()->with('error', 'Record Successfully deleted');
+    }
+
+    public function amc_free_service($id)
+    {
+
+        $data['getRecord'] = AMC::get_single($id);
+        $data['get_free_service'] = AmcFreeService::get_free_service($id);
+        return view('admin.amc.free_service_list', $data);
+    }
+
+    public function amc_add_free_service($id, Request $request)
+    {
+        $data['getRecord'] = AMC::get_single($id);
+        return view('admin.amc.free_service_add', $data);
+    }
+
+    public function amc_store_free_service(Request $request)
+    {
+        // @dd($request->all());
+        $insert_r = request()->validate([
+            'amc_id' => 'required',
+            'name' => 'required',
+            'limits' => 'required',
+            'price' => 'required',
+        ]);
+
+        $insert_r = new AmcFreeService;
+        $insert_r->amc_id = trim($request->amc_id);
+        $insert_r->name = trim($request->name);
+        $insert_r->limits = trim($request->limits);
+        $insert_r->price = trim($request->price);
+        $insert_r->save();
+
+        return redirect('admin/amc/free_service/' . $request->amc_id)->with('success', 'AMC Free Service successfully save');
     }
 }
