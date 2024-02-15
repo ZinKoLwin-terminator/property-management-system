@@ -60,7 +60,9 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="">
+        <a class="nav-link @if (Request::segment(2)=='sub_category') @else
+        collapsed
+       @endif" href="{{url('admin/sub_category/list')}}">
           <i class="bi bi-envelope"></i>
           <span>Sub Category List</span>
         </a>
