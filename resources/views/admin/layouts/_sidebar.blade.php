@@ -42,6 +42,15 @@
       </li>
 
       <li class="nav-item">
+        <a class="nav-link @if (Request::segment(2)=='service_type') @else
+        collapsed
+       @endif" href="{{url('admin/service_type/list')}}">
+          <i class="bi bi-person"></i>
+          <span>Service Type</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
         <a class="nav-link @if (Request::segment(2)=='category') @else
         collapsed
        @endif" href="{{url('admin/category/list')}}">

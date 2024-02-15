@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AMCController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ServiceTypeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,6 +64,15 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('admin/category/edit/{id}', [CategoryController::class, 'category_edit']);
     Route::post('admin/category/edit/{id}', [CategoryController::class, 'category_update']);
     Route::get('admin/category/delete/{id}', [CategoryController::class, 'category_delete']);
+
+    //service type
+
+    Route::get('admin/service_type/list', [ServiceTypeController::class, 'service_type_list']);
+    Route::get('admin/service_type/add', [ServiceTypeController::class, 'service_type_add']);
+    Route::post('admin/service_type/add', [ServiceTypeController::class, 'service_type_add_post']);
+    Route::get('admin/service_type/edit/{id}', [ServiceTypeController::class, 'service_type_edit']);
+    Route::post('admin/service_type/edit/{id}', [ServiceTypeController::class, 'service_type_edit_update']);
+    Route::get('admin/service_type/delete/{id}', [ServiceTypeController::class, 'service_type_delete']);
 });
 
 Route::group(['middleware' => 'user'], function () {
