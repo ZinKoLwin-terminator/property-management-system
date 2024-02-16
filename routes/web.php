@@ -96,6 +96,7 @@ Route::group(['middleware' => 'admin'], function () {
     //Vendor List
     Route::get('admin/vendor/list', [VendorController::class, 'vendor_list']);
     Route::get('admin/vendor/add', [VendorController::class, 'vendor_add']);
+    Route::post('admin/vendor/add', [VendorController::class, 'vendor_store']);
 });
 
 Route::group(['middleware' => 'user'], function () {

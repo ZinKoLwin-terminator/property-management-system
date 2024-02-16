@@ -21,12 +21,12 @@
                         Add Vendor
                     </h5>
 
-                    <form action="{{url('admin/vendor/add')}}" method="post" enctype="multipart/form-data">
+                    <form action="{{url('admin/vendor/add')}}" method="post" enctype="multipart/form-data" enctype="multipart/form-data">
                         {{ csrf_field() }}
                        <div class="row mb-3">
                         <label class="col-sm-3 col-form-label">Vendor First Name<span style="color: red">*</span></label>
                         <div class="col-sm-9">
-                            <input type="text" name="first_name" class="form-control" required value="{{old('first_name')}}">
+                            <input type="text" name="name" class="form-control" required value="{{old('name')}}">
                             <span style="color: red">{{$errors->first('first_name')}}</span>
                         </div>
                        </div>
@@ -62,6 +62,14 @@
                             <span style="color: red">{{$errors->first('profile')}}</span>
                         </div>
                        </div>
+
+                       {{-- <div class="row mb-3">
+                        <label class="col-sm-3 col-form-label">Vendor Address<span style="color: red"></span></label>
+                        <div class="col-sm-9">
+                           <textarea name="address" class="form-control" value="{{old('address')}}"></textarea>
+                            <span style="color: red">{{$errors->first('address')}}</span>
+                        </div>
+                       </div> --}}
 
                        <div class="row mb-3">
                         <label class="col-sm-3 col-form-label">Vendor Type<span style="color: red">*</span></label>
@@ -119,8 +127,8 @@
                         <div class="col-sm-9">
                             <select name="always_assign" class="form-select" required>
                                 <option value="">Select  Always Assign</option>
-                                <option {{old('always_assign') == '0'?"selected":""}} value="0">Active</option>
-                                <option {{old('always_assign') == '1'?"selected":""}} value="1">InActive</option>
+                                <option {{old('always_assign') == '0'?"selected":""}} value="0">No</option>
+                                <option {{old('always_assign') == '1'?"selected":""}} value="1">Yes</option>
                             </select>
                         </div>
                        </div>
