@@ -7,6 +7,7 @@ use App\Http\Controllers\AMCController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ServiceTypeController;
 use App\Http\Controllers\SubCategoryController;
+use App\Http\Controllers\VendorTypeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -82,6 +83,14 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('admin/sub_category/edit/{id}', [SubCategoryController::class, 'sub_category_edit']);
     Route::post('admin/sub_category/edit/{id}', [SubCategoryController::class, 'sub_category_update']);
     Route::get('admin/sub_category/delete/{id}', [SubCategoryController::class, 'sub_category_delete']);
+
+    //Vendor Type
+    Route::get('admin/vendor_type/list', [VendorTypeController::class, 'vendor_type_list']);
+    Route::get('admin/vendor_type/add', [VendorTypeController::class, 'vendor_type_add']);
+    Route::post('admin/vendor_type/add', [VendorTypeController::class, 'vendor_type_store']);
+    Route::get('admin/vendor_type/edit/{id}', [VendorTypeController::class, 'vendor_type_edit']);
+    Route::post('admin/vendor_type/edit/{id}', [VendorTypeController::class, 'vendor_type_update']);
+    Route::get('admin/vendor_type/delete/{id}', [VendorTypeController::class, 'vendor_type_delete']);
 });
 
 Route::group(['middleware' => 'user'], function () {
