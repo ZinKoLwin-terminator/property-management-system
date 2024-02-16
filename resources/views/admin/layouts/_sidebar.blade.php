@@ -12,8 +12,10 @@
         </a>
       </li>
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="">
+      <li class="nav-item ">
+        <a class="nav-link @if (Request::segment(2)=='vendor') @else
+        collapsed
+        @endif" href="{{url('admin/vendor/list')}}">
           <i class="bi bi-person"></i>
           <span>Vendor List</span>
         </a>
