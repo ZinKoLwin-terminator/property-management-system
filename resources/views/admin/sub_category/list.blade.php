@@ -34,15 +34,16 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {{-- @if ($getRecord->count()!=0)
+                            @if ($getRecord->count()!=0)
                             @foreach ($getRecord as $value)
                             <tr>
                            <td>{{$value->id}}</td>
+                           <td>{{$value->category_name }}</td>
                            <td>{{$value->name}}</td>
                            <td>
-                               <a href="{{url('admin/category/edit/'.$value->id)}}" class="btn btn-success"><i class="bi bi-pencil-square"></i></a>
+                               <a href="{{url('admin/sub_category/edit/'.$value->id)}}" class="btn btn-success"><i class="bi bi-pencil-square"></i></a>
 
-                               <a onclick="return confirm('Are you sure you want to delete?')" href="{{ url('admin/category/delete/'.$value->id) }}" class="btn btn-danger"><i class="bi bi-trash"></i></a>
+                               <a onclick="return confirm('Are you sure you want to delete?')" href="{{ url('admin/sub_category/delete/'.$value->id) }}" class="btn btn-danger"><i class="bi bi-trash"></i></a>
                            </td>
                        </tr>
                        @endforeach
@@ -50,10 +51,10 @@
                             <tr>
                              <td class="text-center" colspan="100%">Record Not Found</td>
                          </tr>
-                            @endif --}}
+                            @endif
                         </tbody>
                     </table>
-                    {{-- {{$getRecord->links()}} --}}
+                    {{$getRecord->links()}}
                 </div>
             </div>
         </div>

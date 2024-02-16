@@ -79,6 +79,9 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('admin/sub_category/list', [SubCategoryController::class, 'sub_category_list']);
     Route::get('admin/sub_category/add', [SubCategoryController::class, 'sub_category_add']);
     Route::post('admin/sub_category/add', [SubCategoryController::class, 'sub_category_store']);
+    Route::get('admin/sub_category/edit/{id}', [SubCategoryController::class, 'sub_category_edit']);
+    Route::post('admin/sub_category/edit/{id}', [SubCategoryController::class, 'sub_category_update']);
+    Route::get('admin/sub_category/delete/{id}', [SubCategoryController::class, 'sub_category_delete']);
 });
 
 Route::group(['middleware' => 'user'], function () {
